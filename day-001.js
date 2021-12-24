@@ -68,3 +68,12 @@ function intersection(nums1, nums2) {
   
   return [...intersection];
 }
+
+// #3
+function intersection(nums1, nums2) {
+  const set1 = new Set(nums1);
+
+	const intersection = new Set(nums2.filter(x => set1.has(x)));
+  
+  return [...intersection];
+}
