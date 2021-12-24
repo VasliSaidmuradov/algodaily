@@ -1,2 +1,2 @@
-# algodaily
-AlgoDaily dot com solutions
+# AlgoDaily
+AlgoDaily dot com solutions.
