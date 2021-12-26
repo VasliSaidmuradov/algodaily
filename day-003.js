@@ -82,3 +82,44 @@ function reverseOnlyAlphabetical(str) {
 
   return result.join("");
 }
+
+
+// #3
+function reverseOnlyAlphabetical(str) {
+  const alphaChars = [];
+  str = str.split(""); // strings are immutable in JS
+
+  for (let char of str) {
+    if (/[a-zA-Z]/.test(char)) {
+      alphaChars.push(char);
+    }
+  }
+
+  const reversedAlpha = reverseArray(alphaChars);
+
+  let idxRA = 0;
+  
+  for (let i = 0; i < str.length; i++) {
+    if (/[a-zA-Z]/.test(str[i])) {
+      str[i] = reversedAlpha[idxRA++];
+    }
+  }
+
+  return str.join("");
+}
+
+function reverseArray(arr) {
+  let start = 0;
+  let end = arr.length - 1;
+
+  while (start <= end) {
+    const temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+
+    start++;
+    end--;
+  }
+
+  return arr;
+}
