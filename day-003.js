@@ -52,3 +52,33 @@ const swap = (i, j, arr) => {
 
   return arr;
 };
+
+
+// #2
+function isAlpha(c) {
+  return (c >= 65 && c <= 90) || (c >= 97 && c <= 122);
+}
+
+function swap(arr, a, b) {
+  let t = arr[a];
+  arr[a] = arr[b];
+  arr[b] = t;
+}
+
+function reverseOnlyAlphabetical(str) {
+  const result = str.split("");
+  let left = 0;
+  let right = result.length - 1;
+
+  while (left < right) {
+    if (!isAlpha(result[left].charCodeAt())) {
+      left++;
+    } else if (!isAlpha(result[right].charCodeAt())) {
+      right--;
+    } else {
+      swap(result, left++, right--);
+    }
+  }
+
+  return result.join("");
+}
